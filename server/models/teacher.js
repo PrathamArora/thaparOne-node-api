@@ -84,7 +84,7 @@ TeacherSchema.methods.toJSON = function(){
 TeacherSchema.methods.generateAuthToken = function() {
   var teacher = this;
   var access = 'auth';
-  var token = jwt.sign({_id:teacher._id.toHexString() , access:access} , 'thaparOne').toString();
+  var token = jwt.sign({_id:teacher._id.toHexString() , access:access} , process.env.JWT_SECRET).toString();
 
   teacher.tokens = teacher.tokens.concat([{
     access : access ,
@@ -119,7 +119,7 @@ TeacherSchema.statics.findByToken = function(token) {
   var decoded;
 
   try{
-    decoded = jwt.verify(token , 'thaparOne');
+    decoded = jwt.verify(token , process.env.JWT_SECRET);
 
   }catch(e){
     return new Promise((resolve , reject) => {

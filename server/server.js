@@ -70,7 +70,7 @@ app.post('/teacher/takeAttendance' , authenticateTeacher , (req , res) => {
   });
 
   attendance.save().then((newSession) => {
-    var QRcode = jwt.sign({_id:newSession._id.toHexString()} , 'thaparOne').toString();
+    var QRcode = jwt.sign({_id:newSession._id.toHexString()} , process.env.JWT_SECRET).toString();
     res.send({'attendanceSession' : QRcode});
   } , (e) => {
     res.status(400).send({'error' : 'Cannot create session'});
@@ -105,7 +105,7 @@ app.post('/student/markAttendance' , authenticateStudent , (req , res) => {
   var decodedQRdata;
 
   try{
-    decodedQRdata = jwt.verify(body.QRcodeData , 'thaparOne');
+    decodedQRdata = jwt.verify(body.QRcodeData , process.env.JWT_SECRET);
     Attendance.markAttendance(incomingTime , studentBody , decodedQRdata).then((status) => {
       res.status(200).send({'message' : 'Your Attendance has been marked. Changes will be refelcted within a few minutes.'});
     }).catch((e) => {
@@ -125,7 +125,7 @@ app.post('/teacher/updateAttendance' , (req , res) => {
   var decodedQRdata;
 
   try{
-    decodedQRdata = jwt.verify(body.attendanceSession , 'thaparOne');
+    decodedQRdata = jwt.verify(body.attendanceSession , process.env.JWT_SECRET);
     Attendance.getSession(decodedQRdata).then((attendanceSession) => {
       if(attendanceSession['subjectType'] === 'E'){
         attendanceSession['_subsectionIDs'].forEach(function(subsection){

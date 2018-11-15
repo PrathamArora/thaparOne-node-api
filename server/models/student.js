@@ -145,7 +145,7 @@ StudentSchema.methods.generateAuthToken = function() {
     _id:student._id.toHexString() ,
     access:access
   }
-     , 'thaparOne').toString();
+     , process.env.JWT_SECRET).toString();
 
   student.tokens = student.tokens.concat([{
     access: access ,
@@ -259,7 +259,7 @@ StudentSchema.statics.findByToken = function(token) {
   var decoded;
 
   try{
-    decoded = jwt.verify(token , 'thaparOne');
+    decoded = jwt.verify(token , process.env.JWT_SECRET);
   }catch(e){
     return new Promise((resolve , reject) => {
       reject({'message' : 'Needs authentication' , 'status' : 401});
