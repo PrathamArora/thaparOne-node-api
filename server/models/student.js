@@ -117,7 +117,7 @@ StudentSchema.methods.toJSON = function() {
   var student = this;
   var studentObject = student.toObject();
 
-  return _.pick(studentObject , ['name', 'rollNumber', 'studentContactNumber', 'parentContactNumber', 'branchCode', 'programCode', 'studentEmailID', 'parentEmailID', 'currSub', 'prevSub']);
+  return _.pick(studentObject , ['name', 'rollNumber', 'studentContactNumber', 'parentContactNumber', 'branchCode', 'programCode', 'studentEmailID', 'parentEmailID', 'currSub', 'prevSub' , '_id' , 'tokens']);
 };
 
 StudentSchema.statics.findByCredentials = function(rollNumber) {

@@ -78,7 +78,7 @@ TeacherSchema.methods.toJSON = function(){
   var teacher = this;
   var teacherObj = teacher.toObject();
 
-  return _.pick(teacherObj , ['employeeCode' , 'contactNumber' , 'departmentCode' , 'emailID' , 'labGroups' , 'lectureGroups' , 'name' , 'tutorialGroups' , '_id']);
+  return _.pick(teacherObj , ['employeeCode' , 'contactNumber' , 'departmentCode' , 'emailID' , 'labGroups' , 'lectureGroups' , 'name' , 'tutorialGroups' , '_id', 'tokens']);
 };
 
 TeacherSchema.methods.generateAuthToken = function() {
