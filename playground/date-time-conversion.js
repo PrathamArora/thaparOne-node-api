@@ -1,0 +1,10 @@
+var d = new Date(1521986145414.0);
+var d1 = new Date(1521986145414.0).toDateString();
+var d2 = new Date(1521986145414.0).toTimeString();
+var d3 = new Date(1521986145414.0).toLocaleString();
+var d4 = Math.round(new Date().getTime()/1000);
+console.log(d);
+console.log(d1);
+console.log(d2);
+console.log(d3);
+console.log(d4);

@@ -1,0 +1,30 @@
+[
+  {
+    "subjectType": "E",
+    "subjectID": "170045",
+    "courseCode": "UCS742",
+    "courseName": "DEEP LEARNING",
+    "LTP": "L"
+  },
+  {
+    "subjectType": "E",
+    "subjectID": "170045",
+    "courseCode": "UCS742",
+    "courseName": "DEEP LEARNING",
+    "LTP": "P"
+  },
+  {
+    "subjectType": "C",
+    "subjectID": "160461",
+    "courseCode": "UCS615",
+    "courseName": "IMAGE PROCESSING",
+    "LTP": "L"
+  },
+  {
+    "subjectType": "C",
+    "subjectID": "160461",
+    "courseCode": "UCS615",
+    "courseName": "IMAGE PROCESSING",
+    "LTP": "P"
+  }
+]
