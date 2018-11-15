@@ -19,6 +19,7 @@ var {Teacher} = require('./models/teacher.js');
 var {authenticateTeacher} = require('./middleware/authenticateTeacher.js');
 var {authenticateStudent} = require('./middleware/authenticateStudent.js');
 
+const port = process.env.PORT || 3000;
 var app = express();
 app.use(bodyParser.json());
 
@@ -239,7 +240,6 @@ app.get('/courses/:courseCode' , (req , res) => {
 
 
 
-const port = 3000;
 app.listen(port , () =>{
   console.log(`Started on port ${port}`);
 });
